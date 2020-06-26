@@ -10,10 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('data/{uid}',['as'=>'get.data','uses'=>'DataController@getData']);
 Route::get('current/{id}',['as'=>'get.data','uses'=>'DataController@getCurrent']);
 Route::get('dataardui/{uid}',['as'=>'get.data','uses'=>'DataController@getDataArdui']);
@@ -23,3 +19,6 @@ Route::get('allcay',['as'=>'get.allcay','uses'=>'DataController@allcay']);
 Route::get('setsys/{id}',['as'=>'get.setsys','uses'=>'DataController@setSysIn']);
 Route::get('chitietcay/{id}',['as'=>"get.chitietcay",'uses'=>'DataController@chitietcay']);
 Route::get('luucmnd',['as'=>"get.luucmnd",'uses'=>'DataController@luucmnd']);
+
+Route::get('/dashboard', ['as'=>'dashboard.index','uses'=>'DashboardController@index']);
+Route::resource('/tree', 'TreeController');
