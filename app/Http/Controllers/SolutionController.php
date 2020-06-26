@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\CayModel;
+use App\DataModel;
 
-class TreeController extends Controller
+class SolutionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,9 @@ class TreeController extends Controller
      */
     public function index()
     {
-        $trees = CayModel::all();
-        return view('admin.tree', compact('trees'));
+        $settings = DataModel::with('cay')->get();
+        
+        return view('admin.solution', compact('settings'));
     }
 
     /**
@@ -25,7 +26,7 @@ class TreeController extends Controller
      */
     public function create()
     {
-        return view('admin.create-tree');
+        //
     }
 
     /**
@@ -36,9 +37,7 @@ class TreeController extends Controller
      */
     public function store(Request $request)
     {
-        $cay = CayModel::create($request->except('_token'));
-
-        return redirect()->route('tree.index');
+        //
     }
 
     /**
@@ -49,9 +48,7 @@ class TreeController extends Controller
      */
     public function show($id)
     {
-        $cay = CayModel::findOrFail($id);
-
-        return view('admin.edit-tree', compact('cay'));
+        //
     }
 
     /**
@@ -74,9 +71,7 @@ class TreeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cay = CayModel::whereId($id)->update($request->except('_token', '_method'));
-
-        return redirect()->back();
+        //
     }
 
     /**

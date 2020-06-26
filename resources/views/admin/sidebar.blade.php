@@ -16,17 +16,16 @@
                 <li>
                     <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span> Cây trồng <span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span> </span></a>
                     <ul class="submenu">
-                        <li><a href="email-inbox.html">Thêm mới</a></li>
+                        <li><a href="{{ route('tree.create') }}">Thêm mới</a></li>
                         <li><a href="{{ route('tree.index') }}">Danh sách</a></li>
-                        <li><a href="email-read.html">Thiết đặt dung dịch</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-buffer"></i> <span> Máy bơm <span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span> </span> </a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-delta"></i> <span> Dung dịch <span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span> </span> </a>
                     <ul class="submenu">
-                        <li><a href="ui-alerts.html">Thêm mới</a></li>
-                        <li><a href="ui-buttons.html">Danh sách</a></li>
+                        <li><a href="{{ route('solution.index') }}">Danh sách cây trồng với dung dịch</a></li>
+                        <li><a href="s">Thêm mới thiết đặt</a></li>
                     </ul>
                 </li>
             </ul>

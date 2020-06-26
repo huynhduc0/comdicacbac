@@ -8,4 +8,8 @@ class DataModel extends Model
 {
     protected $table = "data";
     public $timestamps = false;
+
+    public function cay() {
+        return $this->belongsTo(CayModel::class, 'cayid');
+    }
 }

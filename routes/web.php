@@ -22,3 +22,4 @@ Route::get('luucmnd',['as'=>"get.luucmnd",'uses'=>'DataController@luucmnd']);
 
 Route::get('/dashboard', ['as'=>'dashboard.index','uses'=>'DashboardController@index']);
 Route::resource('/tree', 'TreeController');
+Route::resource('/solution', 'SolutionController');

@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Danh sách cây trồng')
+@section('title', 'Danh sách thiết đặt')
 @section('content')
 <div class="content-page">
     <!-- Start content -->
@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-title-box">
-                        <h4 class="page-title">Danh sách cây trồng</h4>
+                        <h4 class="page-title">Danh sách thiết đặt/h4>
                     </div>
                 </div>
             </div>
@@ -21,35 +21,35 @@
                         <div class="card m-b-20">
                             <div class="card-body">
 
-                                <h4 class="mt-0 header-title">Danh sách cây trồng</h4>
+                                <h4 class="mt-0 header-title">Danh sách thiết đặt</h4>
 
                                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                     <tr>
                                         <th>STT</th>
                                         <th>Tên Cây</th>
-                                        <th>Hình ảnh</th>
-                                        <th>Số phút</th>
-                                        <th>Thời gian trễ</th>
-                                        <th>A Trễ</th>
-                                        <th>B Trễ</th>
+                                        <th>Dung tích bể</th>
+                                        <th>Độ dài ống</th>
+                                        <th>EC</th>
+                                        <th>PPM</th>
+                                        <th>PH</th>
+                                        <th>Nhiệt độ</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
 
 
                                     <tbody>
-                                        @foreach($trees as $key => $value)
+                                        @foreach($settings as $key => $value)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td>{{ $value->tencay }}</td>
-                                            <td>
-                                                <img src="{{ $value->hinhloaicay }}" class="img-fluid" alt="{{ $value->tencay }}">
-                                            </td>
-                                            <td>{{ $value->phutmoilan }}</td>
-                                            <td>{{ $value->delaymoilan }}</td>
-                                            <td>{{ $value->Adelay }}</td>
-                                            <td>{{ $value->Bdelay }}</td>
+                                            <td>{{ $value->cay->tencay }}</td>
+                                            <td>{{ $value->dungtichbe }}</td>
+                                            <td>{{ $value->dodaiong }}</td>
+                                            <td>{{ $value->ec }}</td>
+                                            <td>{{ $value->ppm }}</td>
+                                            <td>{{ $value->ph }}</td>
+                                            <td>{{ $value->nhietdo }}</td>
                                             <td>
                                                 <a href="{{ route('tree.show', $value->id) }}" class="btn btn-success waves-effect waves-light"><i class="mdi mdi-square-edit-outline"></i></a>
                                             </td>
