@@ -50,7 +50,7 @@ class DataController extends Controller
   
     function datediffInWeeks($date1, $date2)
 	{
-    if($date1 > $date2) return datediffInWeeks($date2, $date1);
+    if($date1 > $date2) return DataController::datediffInWeeks($date2, $date1);
     $first = DateTime::createFromFormat('m/d/Y', $date1);
     $second = DateTime::createFromFormat('m/d/Y', $date2);
     return floor($first->diff($second)->days/7);
@@ -98,13 +98,19 @@ class DataController extends Controller
         else {
         	return 0;
         }
+        $data = DataModel::find(1);
+        $data->ppm= $req->ppm;
+        $data->ec = $req->ec;
+        $data->nhietdo = $req->nhietdo;
+        $data->save();
     }
     function setData(Request $req){
-    	$setup = DataModel::find($req->id);
+    	$setup = DataModel::find(1);
     	$cay= CayModel::select('*')->where('tencay',$req->tencay)->first();
     	// dd($cay);
     	$setup->cayid = $cay->id;
-    	$setup->save();
+        $setup->save();
+        return "SAVED";
     	// $setup = DataModel::select('*')
     	// ->join("cay","cay.id","data.cayid")
     	// ->where("uid",$setup->uid)->get();
@@ -117,6 +123,8 @@ class DataController extends Controller
     function setSysIn($id, Request $req){
         $cay = DataModel::find($id);
         $cay->dodaiong = $req->duongkinhong;
+        $cay->dodaiong = $req->dodai;
+        $cay->congsuat = $req->congsuat;
         $cay->dungtichbe =  ($req->dodai*1000)*($req->duongkinhong/2)*($req->duongkinhong/2)*3.14/1000000;
         $cay->save();
         return "SAVED";
